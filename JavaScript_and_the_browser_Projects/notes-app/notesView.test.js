@@ -2,9 +2,9 @@
  * @jest-environment jsdom
  */
  const fs = require('fs');
- const Notesview = require('./notesView');
- const NotesModel = require('./notesModel');
 
+ const NotesModel = require('./notesModel');
+ const Notesview = require('./notesView');
 
  describe('notesView', () => {
    it('displays 2 paragraphs', () => {
