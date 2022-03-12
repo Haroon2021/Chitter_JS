@@ -32,8 +32,22 @@
         constructor(model2) {
           this.model = model2;
           this.mainContainerEl = document.querySelector("#main-container");
+          this.addbuttonEl = document.querySelector("#add-notes-button");
+          this.addbuttonEl.addEventListener("click", () => {
+            const newNote = document.querySelector("#add-notes").value;
+            this.addNewNote(newNote);
+          });
+        }
+        addNewNote(newNote) {
+          this.model.addNote(newNote);
+          this.displayNotes();
         }
         displayNotes() {
+          const removenotes = document.querySelectorAll("div.note");
+          removenotes.forEach((removeNote) => {
+            removeNote.remove();
+          });
+          document.querySelector("#add-notes").value = "";
           const notes = this.model.getNotes();
           notes.forEach((note) => {
             const noteEl = document.createElement("div");
